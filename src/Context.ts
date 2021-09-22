@@ -9,21 +9,16 @@ export class Context implements IContext {
     private readonly data: data;
     private readonly config: config;
     private readonly options: options;
-    private readonly ready: boolean;
-    constructor(data: data, config: config, options: options, ready: boolean = false) {
+    constructor(data: data, config: config, options: options) {
         this.data = data;
         this.config = config;
         this.options = options;
-        this.ready = ready;
         (this.options.bundles || []).forEach(bundle => {
             if ('string' === typeof bundle) {
                 bundle = this.loadBundle(bundle);
             }
             this.addBundle(<IBundle>bundle);
         })
-    }
-    isReady() {
-        return this.ready;
     }
     getData(): data {
         return this.data;

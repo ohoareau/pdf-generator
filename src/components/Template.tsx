@@ -1,9 +1,9 @@
 import {usePdfComponent} from "../hooks/usePdfComponent";
 
 export function Template({type, config}: TemplateProps) {
-    const Comp = usePdfComponent('template', type);
+    const Comp = usePdfComponent('template', type, 'default', false);
 
-    return <Comp {...config} />
+    return Comp ? <Comp {...config} /> : null;
 }
 
 export interface TemplateProps {
