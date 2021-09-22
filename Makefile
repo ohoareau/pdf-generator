@@ -16,7 +16,7 @@ publish:
 	@git stash
 	@npm version patch
 	@git stash pop
-	@git add . && git commit -am "feat: $(shell jq '.version' package.json)" && git push && git tag $(V) && git push --tags
+	@git add . && git commit -am "feat: $(shell jq '.version' package.json)" && git push && git tag $(shell jq '.version' package.json) && git push --tags
 	@npm publish
 
 run-cli:
