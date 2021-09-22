@@ -1,4 +1,5 @@
 export CI
+s ?= patch
 
 build: ## Build
 	@yarn --silent build
@@ -13,7 +14,7 @@ install: ## Install the Javascript dependencies
 	@yarn --silent install
 
 publish:
-	@npm version patch -m "feat: %s" -f
+	@npm version $(s) -m "feat: %s" -f
 	@npm publish
 
 run-cli:
