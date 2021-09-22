@@ -1,3 +1,4 @@
+export * from './Bundle';
 export * from './utils';
 export * from './hooks';
 export * from './components';

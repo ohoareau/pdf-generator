@@ -4,24 +4,24 @@ const defaultClasses = {
     root: {
     },
     text: {
-        fontSize: '20pt',
+        fontSize: '16pt',
         fontWeight: 'bold',
     },
 };
 
-export function TitleContent({styles = {}, title}: TitleContentProps) {
+export function SubtitleContent({styles = {}, subtitle}: SubtitleContentProps) {
     const classes = StyleSheet.create(styles);
 
     return (
         <View style={[defaultClasses.root, classes.root]}>
-            <Text style={[defaultClasses.text, classes.text]}>{title}</Text>
+            <Text style={[defaultClasses.text, classes.text]}>{subtitle}</Text>
         </View>
     )
 }
 
-export interface TitleContentProps {
+export interface SubtitleContentProps {
     styles?: any;
-    title?: string;
+    subtitle?: string;
 }
 
-export default TitleContent;
+export default SubtitleContent;

@@ -2,7 +2,6 @@ import fs from "fs";
 import path, {dirname} from "path";
 import {pdf} from "@react-pdf/renderer";
 import Pdf from "../components/Pdf";
-import {BasicBundle} from "../bundles/basic/BasicBundle";
 
 export const generate = async (data, config, target, options = {}) => {
     data = await prepareData(data);
@@ -30,7 +29,7 @@ const prepareConfig = async config => {
 const prepareOptions = async options => {
     const o = {...options};
     o['bundles'] = o['bundles'] || [];
-    o['bundles'].push(new BasicBundle());
+    o['bundles'].push(`${__dirname}/../bundles/basic//BasicBundle`);
 
     return o;
 };

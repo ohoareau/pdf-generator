@@ -11,7 +11,7 @@ export type config = {
 };
 
 export type options = {
-    bundles?: IBundle[];
+    bundles?: (IBundle|string)[];
 };
 
 export type pages = page[];

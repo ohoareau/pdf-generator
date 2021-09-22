@@ -1,6 +1,8 @@
 import IPdfBundle from "./IBundle";
 import IContext from "./IContext";
 import {data, config, options} from './types';
+import IBundle from "./IBundle";
+import path from 'path';
 
 export class Context implements IContext {
     private readonly bundles: {[key: string]: IPdfBundle} = {};
@@ -12,7 +14,10 @@ export class Context implements IContext {
         this.config = config;
         this.options = options;
         (this.options.bundles || []).forEach(bundle => {
-            this.addBundle(bundle);
+            if ('string' === typeof bundle) {
+                bundle = this.loadBundle(bundle);
+            }
+            this.addBundle(<IBundle>bundle);
         })
     }
     getData(): data {
@@ -35,6 +40,12 @@ export class Context implements IContext {
             }
         }
         return bundle.getComponent(type, name);
+    }
+    loadBundle(dsn: string) {
+        const [p, className = 'MainBundle'] = dsn.split('//');
+        const bundleClass = require(path.resolve(`${p}/${className}.js`)).default;
+
+        return new bundleClass();
     }
     addBundle(bundle: IPdfBundle) {
         this.bundles[bundle.getName()] = bundle;
