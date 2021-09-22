@@ -27,11 +27,7 @@ const prepareConfig = async config => {
 };
 
 const prepareOptions = async options => {
-    const o = {...options};
-    o['bundles'] = o['bundles'] || [];
-    o['bundles'].push(`${__dirname}/../bundles/basic//BasicBundle`);
-
-    return o;
+    return {...options};
 };
 
 const savePdfToTarget = async (target, buffer: NodeJS.ReadableStream) => {

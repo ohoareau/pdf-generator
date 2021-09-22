@@ -1,5 +1,5 @@
-import {View, StyleSheet, Image} from '@react-pdf/renderer';
 import {useMemo} from "react";
+import {View, StyleSheet, Image} from '@react-pdf/renderer';
 import QuickChart from 'quickchart-js';
 
 export function ChartContent({styles = {}, options = {}, width = '15cm', height = '8cm'}: ChartContentProps) {

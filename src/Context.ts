@@ -29,12 +29,16 @@ export class Context implements IContext {
     getOptions(): options {
         return this.options;
     }
+    getSortedBundles() {
+        return Object.values(this.bundles);
+    }
     getComponent(type: string, name: string, defaultName: string) {
         let x = name;
-        let bundle = Object.values(this.bundles).find(bundle => bundle.hasComponent(type, x));
+        const bundles = this.getSortedBundles();
+        let bundle = bundles.find(bundle => bundle.hasComponent(type, x));
         if (!bundle) {
             x = defaultName;
-            bundle = Object.values(this.bundles).find(bundle => bundle.hasComponent(type, x));
+            bundle = bundles.find(bundle => bundle.hasComponent(type, x));
             if (!bundle) {
                 throw new Error(`Unknown component '${name}' of type '${type}' (no default component '${defaultName}' as well)`);
             }
@@ -42,6 +46,7 @@ export class Context implements IContext {
         return bundle.getComponent(type, name);
     }
     loadBundle(dsn: string) {
+        dsn = ('@' === dsn.slice(0, 1) && (-1 === dsn.indexOf('/'))) ? `${__dirname}/bundles/${dsn.slice(1)}//${dsn.slice(1, 1).toUpperCase()}${dsn.slice(2)}Bundle` : dsn;
         const [p, className = 'MainBundle'] = dsn.split('//');
         const bundleClass = require(path.resolve(`${p}/${className}.js`)).default;
 
