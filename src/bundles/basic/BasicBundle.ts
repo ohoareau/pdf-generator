@@ -20,5 +20,6 @@ export class BasicBundle extends AbstractBundle {
     hasComponent(type: string, name: string): boolean {
         return !!(this.components[type] || {})[this.buildComponentName(type, name)];
     }
-
 }
+
+export default BasicBundle;
