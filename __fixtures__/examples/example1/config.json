@@ -1,0 +1,56 @@
+{
+  "config": {
+    "pages": [
+      {
+        "config": {
+          "content": [
+            {
+              "type": "title",
+              "config": {
+                "title": "Hello World!"
+              }
+            },
+            {
+              "type": "row",
+              "config": {
+                "cells": [
+                  {
+                    "type": "title",
+                    "config": {
+                      "title": "Cell 1"
+                    }
+                  },
+                  {
+                    "type": "row",
+                    "config": {
+                      "cells": [
+                        {
+                          "type": "title",
+                          "config": {
+                            "title": "Cell 2a"
+                          }
+                        },
+                        {
+                          "type": "title",
+                          "config": {
+                            "title": "Cell 2b"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "title",
+                    "config": {
+                      "title": "Cell 2"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
