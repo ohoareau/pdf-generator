@@ -9,6 +9,7 @@ clean-coverage: ## Remove test coverage directory
 	@rm -rf coverage/
 clean-lib: ## Remove lib directory
 	@rm -rf lib/
+	@rm -f tsconfig.tsbuildinfo
 clean-modules: ## Remove Javascript dependencies directory
 	@rm -rf node_modules/
 
