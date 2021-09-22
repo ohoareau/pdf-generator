@@ -12,6 +12,9 @@ clean-modules: ## Remove Javascript dependencies directory
 install: ## Install the Javascript dependencies
 	@yarn --silent install
 
+publish:
+	@npm publish
+
 run-cli:
 	@yarn --silent run-cli $(d) $(c) $(t)
 
@@ -29,4 +32,5 @@ test-dev: ## Execute the tests
 		clean clean-coverage clean-modules \
 		install \
 		run-cli \
+		publish \
 		test test-ci test-cov test-dev
