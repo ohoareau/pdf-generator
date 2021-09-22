@@ -46,7 +46,7 @@ export class Context implements IContext {
         return bundle.getComponent(type, name);
     }
     loadBundle(dsn: string) {
-        dsn = ('@' === dsn.slice(0, 1) && (-1 === dsn.indexOf('/'))) ? `${__dirname}/bundles/${dsn.slice(1)}//${dsn.slice(1, 1).toUpperCase()}${dsn.slice(2)}Bundle` : dsn;
+        dsn = ('@' === dsn.slice(0, 1) && (-1 === dsn.indexOf('/'))) ? `${__dirname}/bundles/${dsn.slice(1)}//${dsn.slice(1, 2).toUpperCase()}${dsn.slice(2)}Bundle` : dsn;
         const [p, className = 'MainBundle'] = dsn.split('//');
         const bundleClass = require(path.resolve(`${p}/${className}.js`)).default;
 
