@@ -30,7 +30,7 @@ export class Context implements IContext {
         return this.options;
     }
     getSortedBundles() {
-        return Object.values(this.bundles);
+        return Object.values(this.bundles).reverse();
     }
     getComponent(type: string, name: string, defaultName: string) {
         let x = name;
