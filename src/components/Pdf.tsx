@@ -6,7 +6,7 @@ import {PdfProvider} from "../contexts";
 import Template from "./Template";
 
 export const Pdf = ({data = {}, config = {}, options = {}}: PdfProps) => {
-    const pdfContext = useMemo(() => new Context(data, config, options), [options.bundles, data, config, options])
+    const pdfContext = useMemo(() => new Context(data, config, options), [options, data, config])
 
     return (
         <Document>

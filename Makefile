@@ -4,16 +4,18 @@ s ?= patch
 build: ## Build
 	@yarn --silent build
 
-clean: clean-modules clean-coverage
+clean: clean-modules clean-lib clean-coverage
 clean-coverage: ## Remove test coverage directory
 	@rm -rf coverage/
+clean-lib: ## Remove lib directory
+	@rm -rf lib/
 clean-modules: ## Remove Javascript dependencies directory
 	@rm -rf node_modules/
 
 install: ## Install the Javascript dependencies
 	@yarn --silent install
 
-publish:
+publish: clean-lib
 	@npm version $(s) -m "feat: %s" -f
 	@npm publish
 
