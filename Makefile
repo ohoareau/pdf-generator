@@ -13,7 +13,7 @@ install: ## Install the Javascript dependencies
 	@yarn --silent install
 
 publish:
-	@V=$(shell npm version patch) git add . && git commit -am "feat: $(V)" && git push && git tag $(V) && push --tags
+	@export V=$(shell npm version patch) && git add . && git commit -am "feat: $(V)" && git push && git tag $(V) && push --tags
 	@npm publish
 
 run-cli:
