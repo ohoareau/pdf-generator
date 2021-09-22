@@ -25,4 +25,4 @@ export interface ChartContentProps {
     options?: any;
 }
 
-export default TitleContent;
+export default ChartContent;

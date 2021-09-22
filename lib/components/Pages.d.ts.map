@@ -1,1 +1,0 @@
-{"version":3,"file":"Pages.d.ts","sourceRoot":"","sources":["../../src/components/Pages.tsx"],"names":[],"mappings":"AACA,OAAO,EAAC,IAAI,EAAE,IAAI,EAAC,MAAM,UAAU,CAAC;AAEpC,wBAAgB,KAAK,CAAC,EAAC,KAAU,EAAC,EAAE,eAAe,OAUlD;AAED,MAAM,WAAW,eAAe;IAC5B,IAAI,CAAC,EAAE,IAAI,CAAC;IACZ,KAAK,CAAC,EAAE,IAAI,EAAE,CAAC;CAClB;AAED,eAAe,KAAK,CAAA"}

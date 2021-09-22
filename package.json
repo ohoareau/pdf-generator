@@ -1,6 +1,6 @@
 {
     "name": "@ohoareau/pdf-generator",
-    "version": "0.2.7",
+    "version": "0.2.8",
     "description": "PDF Generator",
     "license": "MIT",
     "author": {
@@ -20,6 +20,9 @@
         "access": "public"
     },
     "scripts": {
+        "preversion": "yarn test",
+        "version": "yarn --silent build && git add -A .",
+        "postversion": "git push && git push --tags",
         "build": "yarn --silent tsc",
         "test": "jest --config jest.config.js",
         "run-cli": "node lib/cli.js"
