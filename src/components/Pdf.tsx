@@ -6,12 +6,12 @@ import {PdfProvider} from "../contexts";
 import Template from "./Template";
 
 export const Pdf = ({data = {}, config = {}, options = {}}: PdfProps) => {
-    const pdfContext = useMemo(() => new Context(data, config, options), [options, data, config])
+    const pdfContext = useMemo(() => new Context(data, config, options, true), [options, data, config])
 
     return (
         <Document>
             <PdfProvider value={pdfContext}>
-                <Template {...config} />
+                {pdfContext.isReady() && <Template {...config} />}
             </PdfProvider>
         </Document>
     )
