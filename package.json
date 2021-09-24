@@ -1,6 +1,6 @@
 {
     "name": "@ohoareau/pdf-generator",
-    "version": "0.3.10",
+    "version": "0.3.11",
     "description": "PDF Generator",
     "license": "MIT",
     "author": {
@@ -30,7 +30,8 @@
     "dependencies": {
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
-        "@react-pdf/renderer": "^2.0.19"
+        "@react-pdf/renderer": "^2.0.19",
+        "debug": "^4.3.2"
     },
     "peerDependencies": {
         "quickchart-js": "^1.4.2"

@@ -2,12 +2,19 @@ import fs from "fs";
 import path, {dirname} from "path";
 import {pdf} from "@react-pdf/renderer";
 import Pdf from "../components/Pdf";
+import debug from 'debug';
+
+const debugPdfPrepare = debug('pdf:prepare');
 
 export const generate = async (data, config, target, options = {}) => {
     data = await prepareData(data);
+    debugPdfPrepare('data %j', data);
     config = await prepareConfig(config);
+    debugPdfPrepare('config %j', config);
     options = await prepareOptions(options);
+    debugPdfPrepare('options %j', options);
     const buffer = await pdf(<Pdf data={data} config={config} options={options}/>).toBuffer();
+    debugPdfPrepare('target %s', target);
     return savePdfToTarget(target, buffer);
 }
 

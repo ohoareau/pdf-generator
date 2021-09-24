@@ -37,3 +37,11 @@ export type content_item = {
 };
 
 export type pdf_context_value = IContext;
+
+export type font = {
+    name: string;
+    style: string;
+    weight: number;
+    format?: string;
+    path: string;
+};
