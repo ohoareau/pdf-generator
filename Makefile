@@ -23,6 +23,9 @@ publish: clean-lib
 run-cli:
 	@yarn --silent run-cli $(d) $(c) $(t)
 
+start-storybook:
+	@STORYBOOK_DEBUG=pdf:* STORYBOOK_STATICS_PROJECT_URL=./ yarn --silent story
+
 test: ## Execute the tests
 	@CI=true yarn --silent test --all --color --coverage --detectOpenHandles
 test-ci: ## Execute the tests
@@ -37,5 +40,6 @@ test-dev: ## Execute the tests
 		clean clean-coverage clean-modules \
 		install \
 		run-cli \
+		start-storybook \
 		publish \
 		test test-ci test-cov test-dev

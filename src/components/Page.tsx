@@ -1,4 +1,3 @@
-import {data} from "../types";
 import {usePdfComponent} from "../hooks/usePdfComponent";
 
 export function Page({config, type}: PageProps) {
@@ -8,10 +7,11 @@ export function Page({config, type}: PageProps) {
 }
 
 export interface PageProps {
-    children?: any;
+    config?: any;
     type?: string;
-    data?: data;
-    [key: string]: any;
+    currentPage?: number;
+    totalPages?: number;
+    key?: any;
 }
 
 export default Page;

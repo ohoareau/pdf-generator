@@ -17,9 +17,12 @@ export type options = {
 export type pages = page[];
 
 export type page = {
-    header?: header;
-    content?: content;
-    footer?: footer;
+    type?: string;
+    config?: {
+        header?: header;
+        content?: content;
+        footer?: footer;
+    }
 }
 
 export type header = {
