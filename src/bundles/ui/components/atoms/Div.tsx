@@ -24,7 +24,7 @@ import borderClass, {
 } from "../../mappings/borders";
 
 // noinspection JSUnusedLocalSymbols
-export function Div({children, flex1 = false, wrap = false, b = 'none', full = false, bx, by, bt, bb, bl, br, p, px, py, pt, pb, pl, pr, m, mx, my, mt, mb, ml, mr, className, col = false, row = undefined, flex, responsive}: DivProps) {
+export function Div({children, center = false, flex1 = false, wrap = false, b = 'none', full = false, bx, by, bt, bb, bl, br, p, px, py, pt, pb, pl, pr, m, mx, my, mt, mb, ml, mr, className, col = false, row = undefined, flex, responsive}: DivProps) {
     if ('boolean' === typeof row) {
         col = !row;
     } else {
@@ -57,6 +57,7 @@ export function Div({children, flex1 = false, wrap = false, b = 'none', full = f
         flex && 'flex',
         col && 'flex-col',
         full && 'w-full',
+        center && 'text-center',
     );
 
     return (
@@ -75,6 +76,7 @@ export interface DivProps extends WithClassName, WithChildren, WithMargin, WithP
     spacebetween?: boolean;
     row?: boolean;
     full?: boolean;
+    center?: boolean;
 }
 
 // noinspection JSUnusedGlobalSymbols

@@ -8,7 +8,7 @@ import {
     WithMaxLen,
 } from '../../withs';
 import {Text as PdfText} from '@react-pdf/renderer';
-import {useMemo} from "react";
+import css from "../../utils/css";
 
 // noinspection JSUnusedLocalSymbols
 export function Text({
@@ -20,13 +20,7 @@ export function Text({
     upper = false,
     variant = undefined,
 }: TextProps) {
-    const styles = useMemo(() => ({
-        root: {
-            align: center ? 'center' : undefined,
-            textTransform: upper ? 'uppercase' : undefined,
-            fontWeight: bold ? 'bold' : undefined,
-        },
-    }), [center, upper, bold]);
+    const style = css(center && 'text-center', upper && 'uppercase', bold && 'font-bold');
     if (!text) return null;
     // noinspection SuspiciousTypeOfGuard
     const len = ('string' === typeof text) ? text.length : undefined;
@@ -34,7 +28,7 @@ export function Text({
     text = hasOverflow ? `${(text as string).slice(0, maxLen)}${ellipsis || ''}` : text;
 
     return (
-        <PdfText style={[styles.root]}>{text}</PdfText>
+        <PdfText style={style}>{text}</PdfText>
     )
 }
 

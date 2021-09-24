@@ -2,8 +2,8 @@ import {ComponentType} from "react";
 import AbstractBundle from "./AbstractBundle";
 
 export class Bundle extends AbstractBundle {
-    protected components: {[key: string]: ComponentType<any>};
-    constructor(name: string, components: {[key: string]: ComponentType<any>} = {}) {
+    protected components: {[key: string]: {[key: string]: ComponentType<any>}};
+    constructor(name: string, components: {[key: string]: {[key: string]: ComponentType<any>}} = {}) {
         super(name);
         this.components = {...components};
     }

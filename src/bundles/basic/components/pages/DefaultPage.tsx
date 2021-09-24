@@ -1,6 +1,7 @@
 import {StyleSheet, Page} from '@react-pdf/renderer';
 import {PageFooter, PageHeader, PageContent} from "../../../../components";
 import {content, header, footer} from '../../../../types';
+import {pdf_page_size} from "../../../ui/types";
 
 const classes = StyleSheet.create({
     root: {
@@ -20,7 +21,7 @@ export function DefaultPage({children, size = 'A4', header, footer, content, ...
 
 export interface PageProps {
     children?: any;
-    size?: string;
+    size?: pdf_page_size;
     header?: header;
     footer?: footer;
     content?: content;
