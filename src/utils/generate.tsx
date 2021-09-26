@@ -38,23 +38,29 @@ const prepareOptions = async options => {
 };
 
 const savePdfToTarget = async (target, buffer: NodeJS.ReadableStream) => {
-    // for now, only export to local files.
-    return exportToLocalFileTarget(target, buffer);
+    switch ('string' === typeof target ? target : 'unknown') {
+        case 'stream': return exportToStreamTarget(target, buffer);
+        default: return exportToLocalFileTarget(target, buffer);
+    }
 };
 
-const exportToLocalFileTarget = async (path: string, buffer: NodeJS.ReadableStream) => {
+async function exportToLocalFileTarget(path: string, stream: NodeJS.ReadableStream) {
     const parentDir = dirname(path);
     !fs.existsSync(parentDir) && fs.mkdirSync(parentDir, {recursive: true});
-    const stream = fs.createWriteStream(path);
+    const targetStream = fs.createWriteStream(path);
     return new Promise((resolve) => {
-        buffer.on('data', chunk => {
-            stream.write(chunk);
+        stream.on('data', chunk => {
+            targetStream.write(chunk);
         });
-        buffer.on('end', () => {
-            stream.close();
+        stream.on('end', () => {
+            targetStream.close();
             resolve(path);
         });
     });
-};
+}
+
+async function exportToStreamTarget(_: string, stream: NodeJS.ReadableStream) {
+    return stream;
+}
 
 export default generate;
