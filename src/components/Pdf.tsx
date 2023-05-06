@@ -11,7 +11,7 @@ export const Pdf = ({data = {}, config = {}, options = {}}: PdfProps) => {
     return (
         <Document>
             <PdfProvider value={pdfContext}>
-                <Template {...config} />
+                <Template {...config} template={options?.template} />
             </PdfProvider>
         </Document>
     )

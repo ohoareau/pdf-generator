@@ -11,6 +11,7 @@ export type config = {
 };
 
 export type options = {
+    template?: any; // forced template component
     bundles?: (IBundle|string)[];
 };
 
